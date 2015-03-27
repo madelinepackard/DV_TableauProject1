@@ -1153,10 +1153,48 @@
         <cols>([oracle.42089.773034525500].[none:CUSTOMER_STATE:nk] / ([oracle.42089.773034525500].[yr:ORDER_DATE:ok] / ([oracle.42089.773034525500].[mn:ORDER_DATE:ok] / [oracle.42089.773034525500].[dy:ORDER_DATE:ok])))</cols>
       </table>
     </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ORDERS+ (DV_ORDERS) (2)' name='oracle.42089.773034525500' />
+          </datasources>
+          <datasource-dependencies datasource='oracle.42089.773034525500'>
+            <column caption='Customer State' datatype='string' name='[CUSTOMER_STATE]' role='dimension' type='nominal'>
+            </column>
+            <column-instance column='[CUSTOMER_STATE]' derivation='None' name='[none:CUSTOMER_STATE:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[oracle.42089.773034525500].[none:CUSTOMER_STATE:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:CUSTOMER_STATE:nk]' member='&quot;MD&quot;' />
+              <groupfilter function='member' level='[none:CUSTOMER_STATE:nk]' member='&quot;NC&quot;' />
+              <groupfilter function='member' level='[none:CUSTOMER_STATE:nk]' member='&quot;NJ&quot;' />
+              <groupfilter function='member' level='[none:CUSTOMER_STATE:nk]' member='&quot;NY&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[oracle.42089.773034525500].[none:CUSTOMER_STATE:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols>[oracle.42089.773034525500].[none:CUSTOMER_STATE:nk]</cols>
+      </table>
+    </worksheet>
   </worksheets>
   <windows>
     <window class='schema' source-height='-1' />
-    <window auto-hidden='0' class='worksheet' maximized='1' name='1.orderdate'>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='1.orderdate'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1185,6 +1223,30 @@
           <field>[oracle.42089.773034525500].[none:UNIT_PRICE:qk]</field>
           <field>[oracle.42089.773034525500].[yr:ORDER_DATE:ok]</field>
           <field>[oracle.42089.773034525500].[yr:SHIPPED_DATE:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[oracle.42089.773034525500].[none:CUSTOMER_STATE:nk]</field>
         </color-one-way>
       </highlight>
     </window>
@@ -1348,6 +1410,18 @@
       qgfUSGxpAPGOHqyZeRamUxQqFtYr59nnlRGlMTV6k3uTd4n6VJZSw3xl6HR2dXDh9TftORme
       gi13i1N3blDFT2trjER7616r01SkSha/++u/JLW8jM/npbenA13XsZ7TMotNkRMsC+ee4J0h
       HnEVK4ryXJZG/P8sJImHYJqSSwAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='144' name='Sheet 2' width='174'>
+      iVBORw0KGgoAAAANSUhEUgAAAK4AAACQCAYAAACRfFAzAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAABmUlEQVR4nO3SQQ0AIBDAMMC/58MDH7KkVbDH9szMgpjzOwBeGJck45JkXJKMS5JxSTIu
+      ScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45Jk
+      XJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYl
+      ybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKM
+      S5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgk
+      GZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5Jx
+      STIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck
+      45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuSRePYgUc7kJNEQAAAABJRU5ErkJg
+      gg==
     </thumbnail>
   </thumbnails>
 </workbook>
